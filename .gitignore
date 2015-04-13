@@ -1,0 +1,11 @@
+*.sw?
+.vagrant
+.DS_Store
+.jhw-cache
+/.bundle
+/log/*
+/tmp
+/doc
+coverage/
+database.yml
+public/assets
