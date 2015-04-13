@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'Type=text/html;charset=utf8'}
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge'}
+    = csrf_meta_tags
+    %title Hamper
+    != stylesheet_link_tag "application", media: "screen"
+    != javascript_include_tag "application"
+
+  %body
+    #navbar.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{href: "/"}
+            Hamper
+
+    - flash.each do |name, msg|
+      .container
+        %div{class: "alert flash-#{name}"}
+          %button.close{'data-dismiss' => 'alert'}
+            &times;
+          =msg
+
+    = yield
