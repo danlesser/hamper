@@ -10,7 +10,6 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, type: :controller
   config.infer_base_class_for_anonymous_controllers = false
 
   config.use_transactional_fixtures = false

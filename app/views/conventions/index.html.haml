@@ -1,0 +1,16 @@
+.container
+  .page-header
+    .row
+      .col-md-10
+        %h1 Conventions
+
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Title
+        %th Convention Email
+        %th
+      - @conventions.each do |c|
+        %tr.item
+          %td= c.title
+          %td= c.convention_email
