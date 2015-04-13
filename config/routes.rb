@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'hamper#index'
+  root 'conventions#index'
 
   resources :conventions, only: [:index, :new, :create]
 end
