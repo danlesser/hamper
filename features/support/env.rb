@@ -21,7 +21,4 @@ FactoryGirl.find_definitions
 Capybara.javascript_driver = :webkit
 Capybara::Screenshot.prune_strategy = :keep_last_run
 
-include Warden::Test::Helpers
-Warden.test_mode!
-
 WebMock.disable_net_connect!(allow_localhost: true)

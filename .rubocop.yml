@@ -1,0 +1,20 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'bin/**/*'
+    - 'lib/tasks/cucumber.rake'
+    - 'features/support/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'lib/daemons/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 150
+
+Metrics/AbcSize:
+  Max: 20
