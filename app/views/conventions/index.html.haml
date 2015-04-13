@@ -3,13 +3,15 @@
     .row
       .col-md-10
         %h1 Conventions
+      .col-md-2.h1-padding
+        %a.btn.btn-primary#new_convention_button.btn-block{href: new_convention_path}
+          New Convention
 
   .row-fluid
     %table.table.table-striped
       %tr
         %th Title
         %th Convention Email
-        %th
       - @conventions.each do |c|
         %tr.item
           %td= c.title

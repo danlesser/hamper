@@ -1,0 +1,24 @@
+= form_for([convention], html: {class: 'form-horizontal'}) do |f|
+  - if convention.errors.any?
+    #error_explanation.alert.flash-alert
+      .h4
+        = pluralize(convention.errors.count, "error")
+        prohibited this convention from being saved:
+      %ul
+        - convention.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :title, 'Title', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :convention_email, 'Convention Email', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :convention_email, class: 'form-control'
+  .form-group
+    = f.label :timeslot_duration, 'Timeslot Duration', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select(:timeslot_duration, options_for_select(ConventionsHelper::TIMESLOT_DURATIONS), { class: 'form-control' })
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary disable_on_click'
