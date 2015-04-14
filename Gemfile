@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 gem 'rails', '4.2.1'
 gem 'pg'
@@ -8,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'font-awesome-rails'
 gem 'haml'
 gem 'jquery-rails'
+gem 'rails_12factor'
 gem 'rake-n-bake'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
