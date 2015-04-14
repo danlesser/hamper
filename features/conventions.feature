@@ -27,6 +27,7 @@ Feature: managing conventions
     Then the convention should be removed
 
   Scenario: viewing the details of an individual convention
+    Given the convention has a day
     When I visit the conventions page
     And I click on a convention
     Then I should see the details of the convention

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413133355) do
+ActiveRecord::Schema.define(version: 20150414152852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,5 +21,14 @@ ActiveRecord::Schema.define(version: 20150413133355) do
     t.string  "convention_email"
     t.integer "timeslot_duration"
   end
+
+  create_table "days", force: :cascade do |t|
+    t.date    "date"
+    t.string  "name"
+    t.boolean "public",        default: false
+    t.integer "convention_id"
+  end
+
+  add_index "days", ["convention_id"], name: "index_days_on_convention_id", using: :btree
 
 end

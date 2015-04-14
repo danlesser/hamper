@@ -31,4 +31,9 @@ end
 Then 'I should see the details of the convention' do
   expect(page).to have_content(@convention.convention_email)
   expect(page).to have_content(@convention.timeslot_duration)
+
+  expect(all('.day').count).to eq 1
+  expect(first('.day')).to have_content @day.date
+  expect(first('.day')).to have_content @day.name.titleize
+  expect(first('.day')).to have_content @day.public.to_s.titleize
 end

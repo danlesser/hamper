@@ -7,4 +7,5 @@ describe Convention do
   it { is_expected.to validate_presence_of :convention_email }
   it { is_expected.to validate_uniqueness_of(:convention_email) }
   it { is_expected.to validate_email_format_of(:convention_email).with_message('Valid email addresses only.') }
+  it { is_expected.to have_many :days }
 end

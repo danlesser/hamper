@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 New Day
+  = render 'form', convention: @convention, day: @day
+  = link_to 'Back', convention_path(@convention)

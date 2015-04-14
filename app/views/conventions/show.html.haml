@@ -12,3 +12,20 @@
       %tr
         %td= @convention.convention_email
         %td #{@convention.timeslot_duration} minutes
+  .row
+    .col-md-10
+      %h2 Days
+    .col-md-2.h1-padding
+      %a.btn.btn-primary#new_day_button.btn-block{href: new_convention_day_path(@convention)}
+        New Day
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Date
+        %th Name
+        %th Public?
+      - @convention.days.each do |d|
+        %tr.day
+          %td= d.date
+          %td= d.name.titleize
+          %td= d.public.to_s.titleize
