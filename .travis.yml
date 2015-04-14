@@ -1,6 +1,6 @@
 language: ruby
 rvm:
   - 2.1.2
-script: bundle exec rake ci
 before_script:
-  - cp config/database.yml.example config/database.yml
+  - cp config/database.yml.travis config/database.yml
+script: bundle exec rake ci
