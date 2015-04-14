@@ -12,7 +12,13 @@
       %tr
         %th Title
         %th Convention Email
+        %th
       - @conventions.each do |c|
         %tr.item
           %td= c.title
           %td= c.convention_email
+          %td
+            %a{href: edit_convention_path(c)}Edit
+            |
+            %span{id: "delete_convention_#{c.id}"}
+              = link_to 'Delete', c, data: { confirm: 'Are you sure you want to delete this convention?' }, method: :delete

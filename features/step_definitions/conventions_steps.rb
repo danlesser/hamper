@@ -1,5 +1,5 @@
-Given 'there are some conventions' do
-  @conventions = create_list(:convention, 2)
+Given 'there is a convention' do
+  @convention = create :convention
 end
 
 When 'I visit the conventions page' do
@@ -13,13 +13,15 @@ When 'I fill out the convention form' do
 end
 
 Then 'I should see a list of the conventions' do
-  @conventions.each do |convention|
-    expect(page).to have_content(convention.title)
-    expect(page).to have_content(convention.convention_email)
-  end
+  expect(page).to have_content(@convention.title)
+  expect(page).to have_content(@convention.convention_email)
 end
 
 Then 'I should see the convention' do
   expect(page).to have_content('ConFuzzled')
   expect(page).to have_content('events@confuzzled.org.uk')
+end
+
+Then 'the convention should be removed' do
+  expect(Convention.count).to be_zero
 end
