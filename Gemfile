@@ -34,6 +34,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'capybara-webkit'
   gem 'cucumber-rails', require: false
+  gem 'rake'
   gem 'simplecov'
   gem 'timecop'
   gem 'webmock'

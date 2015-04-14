@@ -279,6 +279,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails_12factor
   rails_best_practices
+  rake
   rake-n-bake
   rspec-rails
   rubocop

@@ -25,3 +25,6 @@ task default: %i(
   stats
   bake:ok_rainbow
 )
+
+task ci: %i(
+  default)
