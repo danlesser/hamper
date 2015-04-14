@@ -21,7 +21,12 @@ Feature: managing conventions
     Then I should see the convention
 
   @javascript
-  Scenario: Deleting a convention
+  Scenario: deleting a convention
     When I visit the conventions page
     And I click the Delete link and confirm
     Then the convention should be removed
+
+  Scenario: viewing the details of an individual convention
+    When I visit the conventions page
+    And I click on a convention
+    Then I should see the details of the convention

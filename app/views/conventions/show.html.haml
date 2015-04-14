@@ -1,0 +1,14 @@
+.container
+  .page-header
+    .row
+      .col-md-10
+        %h1= "Details for #{@convention.title}"
+
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Convention Email
+        %th Timeslot Duration
+      %tr
+        %td= @convention.convention_email
+        %td #{@convention.timeslot_duration} minutes

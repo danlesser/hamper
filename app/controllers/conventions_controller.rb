@@ -9,6 +9,9 @@ class ConventionsController < ApplicationController
     @convention = Convention.new
   end
 
+  def show
+  end
+
   def create
     @convention = Convention.new(convention_params)
     if @convention.save

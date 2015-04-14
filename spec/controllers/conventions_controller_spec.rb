@@ -93,4 +93,13 @@ describe ConventionsController do
       expect(response).to redirect_to conventions_path
     end
   end
+
+  describe 'GET show' do
+    let!(:convention) { create :convention }
+
+    it 'assigns the convention' do
+      get :show, id: convention.id
+      expect(assigns(:convention)).to eq convention
+    end
+  end
 end
