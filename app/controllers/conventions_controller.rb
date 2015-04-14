@@ -11,8 +11,11 @@ class ConventionsController < ApplicationController
 
   def create
     @convention = Convention.new(convention_params)
-    @convention.save
-    redirect_to conventions_path
+    if @convention.save
+      redirect_to conventions_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,8 +27,11 @@ class ConventionsController < ApplicationController
   end
 
   def update
-    @convention.update(convention_params)
-    redirect_to conventions_path
+    if @convention.update(convention_params)
+      redirect_to conventions_path
+    else
+      render :edit
+    end
   end
 
   private

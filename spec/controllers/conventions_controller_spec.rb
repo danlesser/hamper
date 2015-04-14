@@ -18,14 +18,28 @@ describe ConventionsController do
   end
 
   describe 'POST create' do
-    it 'creates the convention and assigns it' do
-      post :create, convention: attributes_for(:convention)
-      expect(assigns(:convention)).to be_persisted
+    context 'with valid params' do
+      it 'creates the convention and assigns it' do
+        post :create, convention: attributes_for(:convention)
+        expect(assigns(:convention)).to be_persisted
+      end
+
+      it 'redirects to the conventions page' do
+        post :create, convention: attributes_for(:convention)
+        expect(response).to redirect_to conventions_path
+      end
     end
 
-    it 'redirects to the conventions page' do
-      post :create, convention: attributes_for(:convention)
-      expect(response).to redirect_to conventions_path
+    context 'with invalid params' do
+      it 'assigns a new convention' do
+        post :create, convention: { convention_email: 'wat' }
+        expect(assigns(:convention)).to be_a_new(Convention)
+      end
+
+      it 're-renders the new template' do
+        post :create, convention: { convention_email: 'wat' }
+        expect(response).to render_template('new')
+      end
     end
   end
 
@@ -46,15 +60,24 @@ describe ConventionsController do
       expect(assigns(:convention)).to eq convention
     end
 
-    it 'updates the convention' do
-      put :update, id: convention.id, convention: { title: 'something else' }
-      convention.reload
-      expect(convention.title).to eq 'something else'
+    context 'with valid params' do
+      it 'updates the convention' do
+        put :update, id: convention.id, convention: { title: 'something else' }
+        convention.reload
+        expect(convention.title).to eq 'something else'
+      end
+
+      it 'redirects to the conventions page' do
+        put :update, id: convention.id, convention: { title: 'something else' }
+        expect(response).to redirect_to conventions_path
+      end
     end
 
-    it 'redirects to the conventions page' do
-      put :update, id: convention.id, convention: { title: 'something else' }
-      expect(response).to redirect_to conventions_path
+    context 'with invalid params' do
+      it 're-renders the edit form' do
+        put :update, id: convention.id, convention: { title: 'Hi!:::' }
+        expect(response).to render_template('edit')
+      end
     end
   end
 
