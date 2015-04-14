@@ -11,7 +11,6 @@ end
 
 Rake::Task['default'].clear
 
-# TODO: make main rspec run exclude the acceptance (API) specs
 task default: %i(
   bake:code_quality:all
   bake:code_quality:time_check
@@ -27,4 +26,15 @@ task default: %i(
 )
 
 task ci: %i(
-  default)
+  bake:code_quality:all
+  bake:code_quality:time_check
+  rubocop
+  rails_best_practices
+  clean
+  assets:clean
+  bake:rspec
+  bake:coverage:check_specs
+  travis
+  stats
+  bake:ok_rainbow
+)
