@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 Edit Day
+  = render 'form', day: @day, convention: nil
+  = link_to 'Back', convention_path(@day.convention)

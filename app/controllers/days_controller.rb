@@ -1,11 +1,12 @@
 class DaysController < ApplicationController
+  before_action :set_convention, only: [:new, :create]
+  before_action :set_day, only: [:edit, :destroy, :update]
+
   def new
-    @convention = Convention.find(params[:convention_id])
     @day = @convention.days.new
   end
 
   def create
-    @convention = Convention.find(params[:convention_id])
     @day = @convention.days.new(day_params)
 
     if @day.save
@@ -15,7 +16,34 @@ class DaysController < ApplicationController
     end
   end
 
-  private def day_params
+  def edit
+  end
+
+  def destroy
+    convention = @day.convention
+    @day.destroy
+    redirect_to convention_path(convention)
+  end
+
+  def update
+    if @day.update(day_params)
+      redirect_to convention_path(@day.convention)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def set_convention
+    @convention = Convention.find(params[:convention_id])
+  end
+
+  def set_day
+    @day = Day.find(params[:id])
+  end
+
+  def day_params
     params.require(:day).permit(:date, :name, :public)
   end
 end
