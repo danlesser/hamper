@@ -28,6 +28,7 @@ Feature: managing conventions
 
   Scenario: viewing the details of an individual convention
     Given the convention has a day
+    And the convention has a track
     When I visit the conventions page
     And I click on a convention
     Then I should see the details of the convention
