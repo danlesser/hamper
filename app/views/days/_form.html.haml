@@ -1,0 +1,24 @@
+= form_for([convention, day], html: {class: 'form-horizontal'}) do |f|
+  - if day.errors.any?
+    #error_explanation.alert.flash-alert
+      .h4
+        = pluralize(day.errors.count, "error")
+        prohibited this day from being saved:
+      %ul
+        - day.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :date, 'Date', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.date_field :date, value: (f.object.date || Date.current.to_s), class: 'form-control'
+  .form-group
+    = f.label :name, 'Name', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :public, 'Public?', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.check_box :public, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary disable_on_click'
