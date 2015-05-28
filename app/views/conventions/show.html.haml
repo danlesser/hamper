@@ -38,12 +38,21 @@
   .row
     .col-md-10
       %h2 Tracks
+    .col-md-2.h1-padding
+      %a.btn.btn-primary#new_track_button.btn-block{href: new_convention_track_path(@convention)}
+        New Track
   .row-fluid
     %table.table.table-striped
       %tr
         %th Name
         %th Rank
+        %th
       - @convention.tracks.each do |t|
         %tr.item.track
           %td= t.name.titleize
           %td= t.rank
+          %td
+            %a{href: edit_track_path(t)}Edit
+            |
+            %span{id: "delete_track_#{t.id}"}
+              = link_to 'Delete', t, data: { confirm: 'Are you sure you want to delete this track?' }, method: :delete
