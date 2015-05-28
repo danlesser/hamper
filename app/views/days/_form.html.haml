@@ -10,7 +10,7 @@
   .form-group
     = f.label :date, 'Date', class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.date_field :date, value: (f.object.date || Date.current.to_s), class: 'form-control'
+      = f.date_field :date, value: (f.object.date || Time.zone.now.to_date), class: 'form-control'
   .form-group
     = f.label :name, 'Name', class: 'col-sm-2 control-label'
     .col-sm-10

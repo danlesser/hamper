@@ -6,6 +6,7 @@ gem 'pg'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'date_validator'
 gem 'font-awesome-rails'
 gem 'haml'
 gem 'jquery-rails'

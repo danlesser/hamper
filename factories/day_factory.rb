@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :day do
-    date { (rand(100.days.ago..5.minute.ago)).change(usec: 0).to_s }
-    name { Faker::Internet.domain_word }
+    date { (rand(Time.zone.now..Time.zone.now + 1.month)).change(usec: 0) }
+    name { Faker::Internet.domain_word[1..20] }
   end
 end
