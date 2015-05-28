@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 New Track
+  = render 'form', convention: @convention, track: @track
+  = link_to 'Back', convention_path(@convention)

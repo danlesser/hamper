@@ -1,0 +1,20 @@
+= form_for([convention, track], html: {class: 'form-horizontal'}) do |f|
+  - if track.errors.any?
+    #error_explanation.alert.flash-alert
+      .h4
+        = pluralize(track.errors.count, "error")
+        prohibited this track from being saved:
+      %ul
+        - track.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :name, 'Name', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :rank, 'Rank', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :rank, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary disable_on_click'

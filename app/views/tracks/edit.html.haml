@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 Edit Track
+  = render 'form', track: @track, convention: nil
+  = link_to 'Back', convention_path(@track.convention)

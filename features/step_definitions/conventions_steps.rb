@@ -36,4 +36,8 @@ Then 'I should see the details of the convention' do
   expect(first('.day')).to have_content @day.date
   expect(first('.day')).to have_content @day.name.titleize
   expect(first('.day')).to have_content @day.public.to_s.titleize
+
+  expect(all('.track').count).to eq 1
+  expect(first('.track')).to have_content @track.name.titleize
+  expect(first('.track')).to have_content @track.rank
 end
