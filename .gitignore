@@ -6,6 +6,7 @@
 /log/*
 /tmp
 /doc
+/tags
 coverage/
 database.yml
 public/assets

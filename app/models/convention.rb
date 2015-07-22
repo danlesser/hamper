@@ -6,4 +6,5 @@ class Convention < ActiveRecord::Base
                                length: { maximum: 40 }
   has_many :days
   has_many :tracks
+  has_many :rooms
 end
