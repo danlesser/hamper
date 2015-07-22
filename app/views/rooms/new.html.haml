@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 New Room
+  = render 'form', convention: @convention, room: @room
+  = link_to 'Back', convention_path(@convention)

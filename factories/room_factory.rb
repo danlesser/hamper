@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :room do
-    name { Faker::Company.name }
-    public_name { Faker::Company.name }
+    name { Faker::Address.city }
+    public_name { Faker::Address.city }
   end
 end

@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 Edit Room
+  = render 'form', room: @room, convention: nil
+  = link_to 'Back', convention_path(@room.convention)

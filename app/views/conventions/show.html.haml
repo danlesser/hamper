@@ -56,3 +56,25 @@
             |
             %span{id: "delete_track_#{t.id}"}
               = link_to 'Delete', t, data: { confirm: 'Are you sure you want to delete this track?' }, method: :delete
+
+  .row
+    .col-md-10
+      %h2 Rooms
+    .col-md-2.h1-padding
+      %a.btn.btn-primary#new_room_button.btn-block{href: new_convention_room_path(@convention)}
+        New Room
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Name
+        %th Public Name
+        %th
+      - @convention.rooms.each do |t|
+        %tr.item.room
+          %td= t.name.titleize
+          %td= t.public_name.titleize
+          %td
+            %a{href: edit_room_path(t)}Edit
+            |
+            %span{id: "delete_room_#{t.id}"}
+              = link_to 'Delete', t, data: { confirm: 'Are you sure you want to delete this room?' }, method: :delete
