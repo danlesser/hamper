@@ -40,4 +40,8 @@ Then 'I should see the details of the convention' do
   expect(all('.track').count).to eq 1
   expect(first('.track')).to have_content @track.name.titleize
   expect(first('.track')).to have_content @track.rank
+
+  expect(all('.room').count).to eq 1
+  expect(first('.room')).to have_content @room.name.titleize
+  expect(first('.room')).to have_content @room.public_name.titleize
 end
