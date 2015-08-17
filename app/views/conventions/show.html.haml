@@ -3,6 +3,9 @@
     .row
       .col-md-10
         %h1= "Details for #{@convention.title}"
+      .col-md-2
+        %a.btn.btn-primary#all_events_button.btn-block{href: convention_events_path(@convention)}
+          All Events
 
   .row-fluid
     %table.table.table-striped
