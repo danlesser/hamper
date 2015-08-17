@@ -29,7 +29,8 @@ Feature: managing events
   Scenario: editing an event
     When I visit the convention details page
     And I click on the All Events button
-    And I click the Edit link for an event
+    And I click on the event
+    And I click on the Edit Event button
     And I fill out the event form
     And I click on the Update Event button
     Then I should see all the details of the new event
@@ -38,5 +39,6 @@ Feature: managing events
   Scenario: deleting a event
     When I visit the convention details page
     And I click on the All Events button
-    And I click the Delete link and confirm
+    And I click on the event
+    And I click the Delete Event button and confirm
     Then the event should be removed

@@ -11,3 +11,9 @@ When(/I click the (.*) link and confirm/) do |link|
     first('.item').find(:link, link).click
   end
 end
+
+When(/I click the (.*) button and confirm/) do |name|
+  accept_confirm do
+    click_on name
+  end
+end

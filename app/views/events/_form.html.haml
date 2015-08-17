@@ -1,0 +1,72 @@
+= form_for([convention, event], html: {class: 'form-horizontal'}) do |f|
+  - if event.errors.any?
+    #error_explanation.alert.flash-alert
+      .h4
+        = pluralize(event.errors.count, "error")
+        prohibited this day from being saved:
+      %ul
+        - event.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :timetable_name, 'Timetable Name', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :timetable_name, class: 'form-control'
+  .form-group
+    = f.label :conbook_name, 'Conbook Name', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :conbook_name, class: 'form-control'
+  .form-group
+    = f.label :conbook_description, 'Conbook Description', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :conbook_description, class: 'form-control'
+  .form-group
+    = f.label :day_id, 'Day', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.collection_select :day_id, Day.all, :id, :name, prompt: true, class: 'form-control'
+  .form-group
+    = f.label :track_id, 'Track', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.collection_select :track_id, Track.all, :id, :name, prompt: true, class: 'form-control'
+  .form-group
+    = f.label :room_id, 'Room', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.collection_select :room_id, Room.all, :id, :name, prompt: true, class: 'form-control'
+  .form-group
+    = f.label :public, 'Public/Private', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :public, [['Public', true], ['Private', false]], class: 'form-control'
+  .form-group
+    = f.label :setup_duration, 'Setup Duration (mins)', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :setup_duration, class: 'form-control'
+  .form-group
+    = f.label :seating_duration, 'Seating Duration (mins)', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :seating_duration, class: 'form-control'
+  .form-group
+    = f.label :event_duration, 'Event Duration (mins)', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :event_duration, class: 'form-control'
+  .form-group
+    = f.label :teardown_duration, 'Teardown Duration (mins)', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :teardown_duration, class: 'form-control'
+  .form-group
+    = f.label :room_layout, 'Room Layout', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :room_layout, class: 'form-control'
+  .form-group
+    = f.label :convention_equipment, 'Convention Equipment', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :convention_equipment, class: 'form-control'
+  .form-group
+    = f.label :hotel_equipment, 'Hotel Equipment', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :hotel_equipment, class: 'form-control'
+  .form-group
+    = f.label :notes, 'Notes', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :notes, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary disable_on_click'

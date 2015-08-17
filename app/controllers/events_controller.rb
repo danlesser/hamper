@@ -1,53 +1,53 @@
 class EventsController < ApplicationController
-  before_action :set_convention, only: [:index]
-  #before_action :set_day, only: [:edit, :destroy, :update]
+  before_action :set_convention, only: [:index, :new, :create]
+  before_action :set_event, only: [:edit, :destroy, :update]
 
   def index
     @events = @convention.events.includes(:day, :room, :track)
   end
 
-  #def new
-    #@day = @convention.days.new
-  #end
+  def show
+    @event = Event.includes(:day, :room, :track).find(params[:id])
+  end
 
-  #def create
-    #@day = @convention.days.new(day_params)
+  def new
+    @event = @convention.events.new
+  end
 
-    #if @day.save
-      #redirect_to convention_path(@convention)
-    #else
-      #render :new
-    #end
-  #end
+  def create
+    @event = @convention.events.new(event_params)
 
-  #def edit
-  #end
+    redirect_to event_path(@event) if @event.save
+  end
 
-  #def destroy
-    #convention = @day.convention
-    #@day.destroy
-    #redirect_to convention_path(convention)
-  #end
+  def edit
+  end
 
-  #def update
-    #if @day.update(day_params)
-      #redirect_to convention_path(@day.convention)
-    #else
-      #render :edit
-    #end
-  #end
+  def update
+    redirect_to event_path(@event) if @event.update(event_params)
+  end
 
-  #private
+  def destroy
+    convention = @event.convention
+    @event.destroy
+    redirect_to convention_events_path(convention)
+  end
+
+  private
 
   def set_convention
     @convention = Convention.find(params[:convention_id])
   end
 
-  #def set_day
-    #@day = Day.find(params[:id])
-  #end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-  #def day_params
-    #params.require(:day).permit(:date, :name, :public)
-  #end
+  def event_params
+    params.require(:event).permit(:timetable_name, :conbook_name, :conbook_description,
+                                  :day_id, :track_id, :room_id, :public, :setup_duration,
+                                  :seating_duration, :event_duration, :teardown_duration,
+                                  :room_layout, :convention_equipment, :hotel_equipment,
+                                  :notes)
+  end
 end
