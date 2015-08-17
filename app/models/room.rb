@@ -3,4 +3,5 @@ class Room < ActiveRecord::Base
                    format: { with: /\A[\w ]+\z/, message: 'Alphanumeric characters (and spaces) only.' },
                    length: { maximum: 40 }
   belongs_to :convention
+  has_many :events
 end
