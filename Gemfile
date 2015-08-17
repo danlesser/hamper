@@ -10,12 +10,15 @@ gem 'date_validator'
 gem 'font-awesome-rails'
 gem 'haml'
 gem 'jquery-rails'
-gem 'rails_12factor'
 gem 'rake-n-bake'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :test, :development do
   gem 'database_cleaner'
@@ -26,9 +29,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'shoulda-matchers', require: false
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-commands-cucumber'
 end
 
 group :test do
