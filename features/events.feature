@@ -6,7 +6,7 @@ Feature: managing events
     And the convention has a room
     And the convention has a track
     And the convention has an event
-    And the event belongs to a room and a track
+    And the event belongs to the day, room and track
 
   @wip
   Scenario: Viewing all of a convention's events
