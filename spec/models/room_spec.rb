@@ -6,4 +6,5 @@ describe Room do
   it { is_expected.to validate_length_of(:name).is_at_most(40) }
   it { is_expected.to allow_value('Windsor').for(:name).with_message('Alphanumeric characters (and spaces) only.') }
   it { is_expected.to belong_to :convention }
+  it { is_expected.to have_many :events }
 end

@@ -12,4 +12,5 @@ describe Convention do
   it { is_expected.to have_many :days }
   it { is_expected.to have_many :tracks }
   it { is_expected.to have_many :rooms }
+  it { is_expected.to have_many :events }
 end

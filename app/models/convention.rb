@@ -7,4 +7,5 @@ class Convention < ActiveRecord::Base
   has_many :days
   has_many :tracks
   has_many :rooms
+  has_many :events
 end
