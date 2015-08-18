@@ -26,7 +26,7 @@
   .form-group
     = f.label :start_time, 'Start Time (HH:MM)', class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.time_field :start_time, value: (f.object.formatted_start_time || Time.zone.now.to_s(:time)), class: 'form-control'
+      = f.time_field :start_time, value: (f.object.formatted_start_time), class: 'form-control'
   .form-group
     = f.label :track_id, 'Track', class: 'col-sm-2 control-label'
     .col-sm-10

@@ -4,7 +4,7 @@ class AddEvents < ActiveRecord::Migration
       t.string :timetable_name
       t.string :conbook_name
       t.string :conbook_description
-      t.time :start_time
+      t.time :start_time, default: Time.zone.now.at_midnight
       t.integer :setup_duration, default: 15
       t.integer :seating_duration, default: 0
       t.integer :event_duration, default: 30
