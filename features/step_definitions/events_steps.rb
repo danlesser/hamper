@@ -23,6 +23,7 @@ When 'I fill out the event form' do
   fill_in('Room Layout', with: 'Boardroom')
   fill_in('Convention Equipment', with: 'Projector')
   fill_in('Hotel Equipment', with: 'Water')
+  fill_in('Event Runners', with: 'Delf')
   fill_in('Notes', with: 'Keep poom AWAY!')
 end
 
@@ -53,6 +54,7 @@ Then 'I should see all the details of the event' do
   expect(page).to have_content(@event.room_layout)
   expect(page).to have_content(@event.convention_equipment)
   expect(page).to have_content(@event.hotel_equipment)
+  expect(page).to have_content(@event.event_runners)
   expect(page).to have_content(@event.notes)
 end
 
@@ -71,6 +73,7 @@ Then 'I should see all the details of the new event' do
   expect(page).to have_content('Boardroom')
   expect(page).to have_content('Projector')
   expect(page).to have_content('Water')
+  expect(page).to have_content('Delf')
   expect(page).to have_content('Keep poom AWAY!')
 end
 

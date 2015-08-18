@@ -48,6 +48,6 @@ class EventsController < ApplicationController
                                   :day_id, :start_time, :track_id, :room_id, :public,
                                   :setup_duration, :seating_duration, :event_duration,
                                   :teardown_duration, :room_layout, :convention_equipment,
-                                  :hotel_equipment, :notes)
+                                  :hotel_equipment, :event_runners, :notes)
   end
 end
