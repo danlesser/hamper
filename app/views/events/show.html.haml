@@ -21,6 +21,9 @@
         %th Day
         %td= @event.day_name
       %tr
+        %th Start Time
+        %td= @event.start_time.to_s(:time)
+      %tr
         %th Track
         %td= @event.track_name
       %tr

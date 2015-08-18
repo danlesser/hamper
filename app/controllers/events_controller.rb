@@ -45,9 +45,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:timetable_name, :conbook_name, :conbook_description,
-                                  :day_id, :track_id, :room_id, :public, :setup_duration,
-                                  :seating_duration, :event_duration, :teardown_duration,
-                                  :room_layout, :convention_equipment, :hotel_equipment,
-                                  :notes)
+                                  :day_id, :start_time, :track_id, :room_id, :public,
+                                  :setup_duration, :seating_duration, :event_duration,
+                                  :teardown_duration, :room_layout, :convention_equipment,
+                                  :hotel_equipment, :notes)
   end
 end

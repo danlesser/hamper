@@ -42,6 +42,7 @@ Then 'I should see all the details of the event' do
   expect(page).to have_content(@event.conbook_name)
   expect(page).to have_content(@event.conbook_description)
   expect(page).to have_content(@event.day.name)
+  expect(page).to have_content(@event.start_time.to_s(:time))
   expect(page).to have_content(@event.track.name)
   expect(page).to have_content(@event.room.name)
   expect(page).to have_content('Private')
