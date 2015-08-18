@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150817103059) do
     t.string  "timetable_name"
     t.string  "conbook_name"
     t.string  "conbook_description"
-    t.time    "start_time"
+    t.time    "start_time",           default: '2000-01-01 00:00:00'
     t.integer "setup_duration",       default: 15
     t.integer "seating_duration",     default: 0
     t.integer "event_duration",       default: 30

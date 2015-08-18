@@ -17,14 +17,22 @@ class EventsController < ApplicationController
   def create
     @event = @convention.events.new(event_params)
 
-    redirect_to event_path(@event) if @event.save
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    redirect_to event_path(@event) if @event.update(event_params)
+    if @event.update(event_params)
+      redirect_to event_path(@event)
+    else
+      render :edit
+    end
   end
 
   def destroy

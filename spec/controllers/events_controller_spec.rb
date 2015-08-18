@@ -32,7 +32,7 @@ describe EventsController do
       expect(assigns(:convention)).to eq convention
     end
 
-    it 'assigns a new track' do
+    it 'assigns a new event' do
       get :new, convention_id: convention.id
       expect(assigns(:event)).to be_a_new Event
     end
@@ -66,6 +66,18 @@ describe EventsController do
         expect(response).to redirect_to event_path(convention.events.last)
       end
     end
+
+    context 'with invalid params' do
+      it 'assigns a new event' do
+        post :create, convention_id: convention.id, event: { conbook_name: '' }
+        expect(assigns(:event)).to be_a_new(Event)
+      end
+
+      it 're-renders the new template' do
+        post :create, convention_id: convention.id, event: { conbook_name: '' }
+        expect(response).to render_template('new')
+      end
+    end
   end
 
   describe 'GET edit' do
@@ -95,6 +107,13 @@ describe EventsController do
       it 'redirects to the event page' do
         put :update, id: event.id, event: { conbook_name: 'something else' }
         expect(response).to redirect_to event_path(event)
+      end
+    end
+
+    context 'with invalid params' do
+      it 're-renders the edit form' do
+        put :update, id: event.id, event: { conbook_name: '' }
+        expect(response).to render_template('edit')
       end
     end
   end
