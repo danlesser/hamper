@@ -9,6 +9,5 @@ class Event < ActiveRecord::Base
   delegate :name, to: :track, prefix: true
 
   def formatted_start_time
-    start_time ? start_time.to_s(:time) : nil
   end
 end

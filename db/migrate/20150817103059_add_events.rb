@@ -13,6 +13,7 @@ class AddEvents < ActiveRecord::Migration
       t.string :room_layout
       t.string :convention_equipment
       t.string :hotel_equipment
+      t.string :event_runners
       t.string :notes
       t.belongs_to :convention, index: true
       t.belongs_to :day, index: true

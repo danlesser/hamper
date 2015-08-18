@@ -11,6 +11,7 @@ FactoryGirl.define do
     room_layout { Faker::Internet.domain_word }
     convention_equipment { Faker::Internet.domain_word }
     hotel_equipment { Faker::Internet.domain_word }
+    event_runners { Faker::Name.name }
     notes { Faker::Internet.domain_word }
   end
 end

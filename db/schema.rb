@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150817103059) do
     t.string  "room_layout"
     t.string  "convention_equipment"
     t.string  "hotel_equipment"
+    t.string  "event_runners"
     t.string  "notes"
     t.integer "convention_id"
     t.integer "day_id"
