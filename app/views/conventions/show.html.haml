@@ -37,7 +37,7 @@
             %a{href: edit_day_path(d)}Edit
             |
             %span{id: "delete_day_#{d.id}"}
-              = link_to 'Delete', d, data: { confirm: 'Are you sure you want to delete this day?' }, method: :delete
+              = link_to 'Delete', d, data: { confirm: 'Deleting this day will also delete all of its events. Are you sure you want to delete this day?' }, method: :delete
   .row
     .col-md-10
       %h2 Tracks
@@ -58,7 +58,7 @@
             %a{href: edit_track_path(t)}Edit
             |
             %span{id: "delete_track_#{t.id}"}
-              = link_to 'Delete', t, data: { confirm: 'Are you sure you want to delete this track?' }, method: :delete
+              = link_to 'Delete', t, data: { confirm: 'Deleting this track will also delete all of its events. Are you sure you want to delete this track?' }, method: :delete
 
   .row
     .col-md-10
@@ -80,4 +80,4 @@
             %a{href: edit_room_path(t)}Edit
             |
             %span{id: "delete_room_#{t.id}"}
-              = link_to 'Delete', t, data: { confirm: 'Are you sure you want to delete this room?' }, method: :delete
+              = link_to 'Delete', t, data: { confirm: 'Deleting this room will also delete all of its events. Are you sure you want to delete this room?' }, method: :delete

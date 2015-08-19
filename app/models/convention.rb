@@ -4,8 +4,8 @@ class Convention < ActiveRecord::Base
                     length: { maximum: 40 }
   validates :convention_email, presence: true, uniqueness: true, email_format: { message: 'Valid email addresses only.' },
                                length: { maximum: 40 }
-  has_many :days
-  has_many :tracks
-  has_many :rooms
-  has_many :events
+  has_many :days, dependent: :destroy
+  has_many :tracks, dependent: :destroy
+  has_many :rooms, dependent: :destroy
+  has_many :events, dependent: :destroy
 end

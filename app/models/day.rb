@@ -4,5 +4,5 @@ class Day < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :convention }, length: { maximum: 30 },
                    format: { with: /\A[\w ]+\z/, message: 'Alphanumeric characters (and spaces) only.' }
   belongs_to :convention
-  has_many :events
+  has_many :events, dependent: :destroy
 end
