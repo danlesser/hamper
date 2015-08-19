@@ -2,7 +2,7 @@ Given 'the convention has a track' do
   @track = @convention.tracks.create(attributes_for(:track))
 end
 
-And 'I fill out the track form' do
+When 'I fill out the track form' do
   fill_in('Name', with: 'Nightclub')
   fill_in('Rank', with: '1')
 end

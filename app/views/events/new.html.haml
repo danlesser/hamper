@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1 New Event
+  = render 'form', convention: @convention, event: @event
+  = link_to 'Back', convention_events_path(@convention)

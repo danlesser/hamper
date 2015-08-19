@@ -1,0 +1,24 @@
+.container
+  .page-header
+    .row
+      .col-md-10
+        %h1= "All Events for #{@convention.title}"
+      .col-md-2.h1-padding
+        %a.btn.btn-primary#new_event_button.btn-block{href: new_convention_event_path(@convention)}
+          New Event
+
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Timetable Name
+        %th Day
+        %th Track
+        %th Room
+      - @events.each do |e|
+        %tr.item
+          %td
+            %a{href: event_path(e)}
+              = e.timetable_name
+          %td= e.day.name
+          %td= e.track.name
+          %td= e.room.name

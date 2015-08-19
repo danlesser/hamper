@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722135614) do
+ActiveRecord::Schema.define(version: 20150817103059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,32 @@ ActiveRecord::Schema.define(version: 20150722135614) do
   end
 
   add_index "days", ["convention_id"], name: "index_days_on_convention_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string  "timetable_name"
+    t.string  "conbook_name"
+    t.string  "conbook_description"
+    t.time    "start_time",           default: '2000-01-01 00:00:00'
+    t.integer "setup_duration",       default: 15
+    t.integer "seating_duration",     default: 0
+    t.integer "event_duration",       default: 30
+    t.integer "teardown_duration",    default: 15
+    t.boolean "public",               default: false
+    t.string  "room_layout"
+    t.string  "convention_equipment"
+    t.string  "hotel_equipment"
+    t.string  "event_runners"
+    t.string  "notes"
+    t.integer "convention_id"
+    t.integer "day_id"
+    t.integer "room_id"
+    t.integer "track_id"
+  end
+
+  add_index "events", ["convention_id"], name: "index_events_on_convention_id", using: :btree
+  add_index "events", ["day_id"], name: "index_events_on_day_id", using: :btree
+  add_index "events", ["room_id"], name: "index_events_on_room_id", using: :btree
+  add_index "events", ["track_id"], name: "index_events_on_track_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string  "name"

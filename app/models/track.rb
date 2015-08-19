@@ -4,4 +4,5 @@ class Track < ActiveRecord::Base
                    length: { maximum: 40 }
   validates :rank, presence: true, uniqueness: { scope: :convention }
   belongs_to :convention
+  has_many :events
 end

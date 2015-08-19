@@ -2,7 +2,7 @@ Given 'the convention has a room' do
   @room = @convention.rooms.create(attributes_for(:room))
 end
 
-And 'I fill out the room form' do
+When 'I fill out the room form' do
   fill_in('Name', with: 'Windsor')
   fill_in('Public Name', with: 'Main Stage')
 end

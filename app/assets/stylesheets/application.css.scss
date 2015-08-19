@@ -1,3 +1,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+
+ .button_to {
+   input {
+     @extend .btn;
+     @extend .btn-primary;
+     @extend .btn-block;
+   }
+   margin-top: -5px;
+ }

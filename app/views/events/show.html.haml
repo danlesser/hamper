@@ -1,0 +1,61 @@
+.container
+  .page-header
+    .row
+      .col-md-8
+        %h1= "Details for #{@event.timetable_name}"
+      .col-md-2.h1-padding
+        %a.btn.btn-primary#edit_event_button.btn-block{href: edit_event_path(@event)}
+          Edit Event
+      .col-md-2.h1-padding
+        = button_to 'Delete Event', @event, data: { confirm: 'Are you sure you want to delete this event?' }, method: :delete
+
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Conbook Name
+        %td= @event.conbook_name
+      %tr
+        %th Conbook Description
+        %td= @event.conbook_description
+      %tr
+        %th Day
+        %td= @event.day_name
+      %tr
+        %th Start Time
+        %td= @event.formatted_start_time
+      %tr
+        %th Track
+        %td= @event.track_name
+      %tr
+        %th Room
+        %td= @event.room_name
+      %tr
+        %th Public/Private
+        %td= @event.public? ? 'Public' : 'Private'
+      %tr
+        %th Setup Duration
+        %td= @event.setup_duration
+      %tr
+        %th Seating Duration
+        %td= @event.seating_duration
+      %tr
+        %th Event Duration
+        %td= @event.event_duration
+      %tr
+        %th Teardown Duration
+        %td= @event.teardown_duration
+      %tr
+        %th Room Layout
+        %td= @event.room_layout
+      %tr
+        %th Convention Equipment
+        %td= @event.convention_equipment
+      %tr
+        %th Hotel Equipment
+        %td= @event.hotel_equipment
+      %tr
+        %th Event Runners
+        %td= @event.event_runners
+      %tr
+        %th Notes
+        %td= @event.notes

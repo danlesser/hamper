@@ -8,4 +8,5 @@ describe Track do
   it { is_expected.to validate_presence_of(:rank) }
   it { is_expected.to validate_uniqueness_of(:rank).scoped_to(:convention_id) }
   it { is_expected.to belong_to :convention }
+  it { is_expected.to have_many :events }
 end

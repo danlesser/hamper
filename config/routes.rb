@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :days, except: [:show, :index]
     resources :tracks, except: [:show, :index]
     resources :rooms, except: [:show, :index]
+    resources :events
   end
 end
