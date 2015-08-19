@@ -19,16 +19,16 @@
         %td= @event.conbook_description
       %tr
         %th Day
-        %td= @event.day_name
+        %td= @event.day ? @event.day_name : 'NO DAY CURRENTLY ASSIGNED'
       %tr
         %th Start Time
         %td= @event.formatted_start_time
       %tr
         %th Track
-        %td= @event.track_name
+        %td= @event.track ? @event.track_name : 'NO TRACK CURRENTLY ASSIGNED'
       %tr
         %th Room
-        %td= @event.room_name
+        %td= @event.room ? @event.room_name : 'NO ROOM CURRENTLY ASSIGNED'
       %tr
         %th Public/Private
         %td= @event.public? ? 'Public' : 'Private'

@@ -19,6 +19,6 @@
           %td
             %a{href: event_path(e)}
               = e.timetable_name
-          %td= e.day.name
-          %td= e.track.name
-          %td= e.room.name
+          %td= e.day ? e.day_name : 'NO DAY CURRENTLY ASSIGNED'
+          %td= e.track ? e.track_name : 'NO TRACK CURRENTLY ASSIGNED'
+          %td= e.room ? e.room_name : 'NO ROOM CURRENTLY ASSIGNED'
