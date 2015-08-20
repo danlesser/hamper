@@ -1,0 +1,24 @@
+.container
+  .page-header
+    .row
+      .col-md-10
+        %h1 Users
+      .col-md-2.h1-padding
+        %a.btn.btn-primary#new_user_button.btn-block{href: new_user_path}
+          New User
+
+  .row-fluid
+    %table.table.table-striped
+      %tr
+        %th Name
+        %th Email
+        %th
+      - @users.each do |u|
+        %tr.item
+          %td= u.name
+          %td= u.email
+          %td
+            %a{href: edit_user_path(u)}Edit
+            |
+            %span{id: "delete_user_#{u.id}"}
+              = link_to 'Delete', u, data: { confirm: 'Are you sure you want to delete this user?' }, method: :delete

@@ -2,6 +2,18 @@ Given 'there is a convention' do
   @convention = create :convention
 end
 
+Given 'I am logged in' do
+  visit new_user_path
+  fill_in 'Name', with: 'Dan'
+  fill_in 'Email', with: 'dan@lol.com'
+  fill_in 'Password', with: 'password'
+  fill_in 'Password Confirmation', with: 'password'
+  click_button 'Create User'
+  fill_in 'Email', with: 'dan@lol.com'
+  fill_in 'Password', with: 'password'
+  click_button 'Login'
+end
+
 When 'I visit the conventions page' do
   visit conventions_path
 end

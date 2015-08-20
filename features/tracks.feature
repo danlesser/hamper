@@ -3,6 +3,7 @@ Feature: managing tracks
   Background:
     Given there is a convention
     And the convention has a track
+    And I am logged in
 
   Scenario: Adding a track
     When I visit the convention details page

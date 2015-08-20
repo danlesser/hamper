@@ -1,6 +1,7 @@
 Feature: managing conventions
   Background:
     Given there is a convention
+    And I am logged in
 
   Scenario: viewing a list of conventions
     When I visit the conventions page
