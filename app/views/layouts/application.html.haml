@@ -14,6 +14,24 @@
         .navbar-header
           %a.navbar-brand{href: "/"}
             Hamper
+        - if current_user
+          %ul.nav.navbar-nav
+            %li.navbar-block
+              %a.navbar-block-link{href: '/users'}
+                Users
+
+        - if current_user
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "#"}= current_user.name
+            %li
+              = link_to "Logout", :logout, method: :post
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li.navbar-block
+              = link_to "Register", new_user_path
+            %li.navbar-block
+              = link_to "Login", :login
 
     - flash.each do |name, msg|
       .container

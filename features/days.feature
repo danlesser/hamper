@@ -3,6 +3,7 @@ Feature: managing days
   Background:
     Given there is a convention
     And the convention has a day
+    And I am logged in
 
   Scenario: Adding a day
     When I visit the convention details page

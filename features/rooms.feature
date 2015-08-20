@@ -3,6 +3,7 @@ Feature: managing rooms
   Background:
     Given there is a convention
     And the convention has a room
+    And I am logged in
 
   Scenario: Adding a room
     When I visit the convention details page

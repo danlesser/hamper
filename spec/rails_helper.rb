@@ -12,7 +12,10 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
+  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
+  config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
 
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
 
   config.before(:suite) do

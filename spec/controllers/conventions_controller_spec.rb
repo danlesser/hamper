@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe ConventionsController do
+  fixtures :users
+
+  before do
+    @user = users(:dan)
+    login_user
+  end
+
   describe 'GET index' do
     let!(:conventions) { create_list :convention, 3 }
 

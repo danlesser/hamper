@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe RoomsController do
+  fixtures :users
+
+  before do
+    @user = users(:dan)
+    login_user
+  end
+
   let(:convention) { create :convention }
 
   describe 'GET new' do

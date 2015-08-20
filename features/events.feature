@@ -6,6 +6,7 @@ Feature: managing events
     And the convention has a track
     And the convention has an event
     And the event belongs to the day, room and track
+    And I am logged in
 
   Scenario: Viewing all of a convention's events
     When I visit the convention details page
