@@ -5,5 +5,8 @@
   .form-group
     = label_tag :password, 'Password'
     = password_field_tag :password
+  .form-group
+    = check_box_tag :remember, params[:remember], false
+    = label_tag :remember
   .actions
     = submit_tag "Login"

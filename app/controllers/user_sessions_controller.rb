@@ -22,6 +22,6 @@ class UserSessionsController < ApplicationController
   private
 
   def login_user
-    @user = login(params[:email], params[:password])
+    @user = login(params[:email], params[:password], params[:remember])
   end
 end
