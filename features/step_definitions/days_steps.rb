@@ -8,12 +8,13 @@ end
 
 When 'I fill out the day form' do
   fill_in('Name', with: 'Friday')
+  select('Public', from: 'Public/Private')
 end
 
 Then 'I should see the day' do
   expect(page).to have_content(@convention.days.last.date)
   expect(page).to have_content(@convention.days.last.name.titleize)
-  expect(page).to have_content(@convention.days.last.public.to_s.titleize)
+  expect(page).to have_content('Public')
 end
 
 Then 'the day should be removed' do

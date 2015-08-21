@@ -26,13 +26,13 @@
       %tr
         %th Date
         %th Name
-        %th Public?
+        %th Public/Private
         %th
       - @convention.days.each do |d|
         %tr.item.day
           %td= d.date
           %td= d.name.titleize
-          %td= d.public.to_s.titleize
+          %td= d.public? ? 'Public' : 'Private'
           %td
             %a{href: edit_day_path(d)}Edit
             |
